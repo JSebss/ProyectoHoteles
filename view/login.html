@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Inicio de sesión</title>
+</head>
+<body>
+  <form action="../controller/conexion.php" method="POST">
+    <div class="container">
+        <div class="backbox">
+          <div class="loginMsg">
+            <div class="textcontent">
+              <p class="title">¿No tienes una cuenta?</p>
+              <p>Registrate para ver todos los hoteles</p>
+              <button id="switch1">Registrarse</button>
+            </div>
+          </div>
+          <div class="signupMsg visibility">
+            <div class="textcontent">
+              <p class="title">¿Ya tienes una cuenta?</p>
+              <p>Entra para ver nuevas ofertas</p>
+              <button id="switch2">Iniciar sesión</button>
+            </div>
+          </div>
+        </div>    
+        <div class="frontbox">
+          <div class="login">
+            <h2>Inicio de sesión</h2>
+            <div class="inputbox">
+              <input type="email" name="email" placeholder="Correo" required>
+              <input class="lpassword" type="password" name="password" placeholder="Contraseña" required>
+              <i class="show fas fa-eye"></i>
+              <i class="hide fas fa-eye-slash"></i>
+            </div>
+            <p>¿Olvidaste tu contraseña?</p>
+            <button>Entrar</button>
+          </div>
+          <div class="signup hide">
+            <h2>Registrarse</h2>
+            <div class="inputbox">
+              <input type="text" class="name" name="name" placeholder="Nombres" required>
+              <input type="text" class="lastname" name="lastname" placeholder="Apellidos" required>
+              <label for="birth">Fecha de nacimiento:</label>
+              <input type="date" class="fechaNac" name="birth" required>
+              <input type="tel" class="tel" name="name" placeholder="Telefono" required>
+              <input type="number" name="numDoc" placeholder="Numero de documento" required>
+              <input type="email" name="email" placeholder="Correo" required>
+              <input class="password" type="password" name="password" placeholder="Contraseña" required>
+              <i class="show1 fas fa-eye"></i>
+              <i class="hide1 fas fa-eye-slash"></i>
+              <input class="confirmpassword" type="password" name="confirmpassword" placeholder="Confirmar contraseña" required>
+              <i class="show2 fas fa-eye"></i>
+              <i class="hide2 fas fa-eye-slash"></i>
+            </div>
+            <button>Registrarse</button>
+          </div>
+        </div>
+      </div>
+    </form>
+      <script src="../assets/js/jquery-3.6.0.min.js"></script>
+      <script src="../assets/js/login.js"></script>
+</body>
+</html>
