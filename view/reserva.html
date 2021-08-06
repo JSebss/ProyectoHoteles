@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <form class="quick-reservation">
+   
+<div class="container">
+   <header class="quick-reservation__header">
+      <h2 class="title">
+         Nueva reservación
+      </h2>
+      <div class="close-icon">
+         <span></span>
+         <span></span>
+      </div>
+   </header>
+   
+   <div class="quick-reservation__form">
+      <section class="form__content">
+         <div class="row-wrapper">
+            <div class="ele adults">
+               <label for="adults">Adultos</label>
+               <select name="adults" id="adults">
+                  <option value="hide">Adultos</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+               </select>
+            </div>
+            <div class="ele children">
+               <label for="children">Niños</label>
+               <select name="children" id="children">
+                  <option value="hide">Niños</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+               </select>
+            </div>
+            <div class="ele rooms">
+               <label for="Rooms">Habitacion</label>
+               <select name="rooms" id="Rooms">
+                  <option value="hide">Habitacion</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+               </select>
+            </div>         
+         </div>
+         <div class="row-wrapper">
+            <div class="ele first-name">
+               <label for="firstName">Nombre</label>
+               <input type="text" value="" placeholder="First Name" id="firstName">
+            </div>
+            <div class="ele last-name">
+               <label for="lastName">Apellidos</label>
+               <input type="text" value="" placeholder="Last Name" id="lastName">
+            </div>    
+         </div>
+         <label>Fecha de nacimiento:</label>
+         <input type="date" class="fechaNac" name="birth" required/>
+         <div class="row-wrapper">
+            <div class="ele email-address">
+               <label for="emailAddress">Correo electronico</label>
+               <input type="email" value="" placeholder="Enter Email" id="emailAddress">
+            </div>
+            <div class="ele phone-number">
+               <label for="phoneNumber">Numero de telefono</label>
+               <input type="text" value="" placeholder="Enter Phone Number" id="phoneNumber">
+            </div> 
+            
+         </div>
+         
+      </section>
+   </div>
+   
+   <div class="reservation-info">
+      <div class="ele data">
+         <h4 class="data__head">Tipo de habitacion</h4>
+         <p class="data__description">Sencilla</p>
+      </div>
+      <div class="ele data">
+         <h4 class="data__head">Duracion</h4>
+         <p class="data__description">May 28 - Jun 2</p>
+      </div>
+      <div class="ele data">
+         <h4 class="data__head">Precio</h4>
+         <p class="data__description">$45/noche<br> Total $270</p>
+      </div>
+   </div>
+   
+   <footer class="form__footer">
+      <div class="footer-wrapper">
+         <input type="submit" value="Cancelar" class="">
+         <input type="submit" value="Reservar" class="">
+      </div>
+   </footer>
+</div>
+   
+</form>
+<script src="../library/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/reserva.js"></script>
+</body>
+</html>

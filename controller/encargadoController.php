@@ -5,24 +5,10 @@
     $nombres = $_POST['name'];
     $apellidos = $_POST['lastname'];
     $fechaNac = $_POST['birth'];
-    $telefono = $_POST['tel'];
-    $numDoc = $_POST['numDoc'];
     $correo = $_POST['email'];
     $clave = $_POST['password'];
 
-    $query = "CALL crearCliente ('$nombres', '$apellidos', '$fechaNac', '$telefono', '$numDoc', '$correo', '$clave');";
-
-    $verify_email = mysqli_query($conexion,"CALL correoExistente ('$correo');");
-    
-    if(mysqli_num_rows($verify_email) > 0){
-        echo '
-        <script>
-            alert("Correo ya registrado, intenta con otro diferente");
-            window.location = "../view/signup.php";
-        </script>  
-        ';
-        exit();
-    }
+    $query = "CALL crearEncargado ('$nombres', '$apellidos', '$fechaNac', '$correo', '$clave');";
 
     $execute = mysqli_query($conexion, $query);
 

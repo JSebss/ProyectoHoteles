@@ -43,7 +43,7 @@ class Cliente{
         return $this->$telefonoCliente;
     }
 
-    public function serTelefonoCliente($telefonoCliente){
+    public function setTelefonoCliente($telefonoCliente){
         $this->telefonoCliente = $telefonoCliente;
     }
     public function getNumDocCliente(){

@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
 
     <!-- Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>Alojamientos</title>
     <link rel="stylesheet" href="assets/css/style.css">
     
     <!-- Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="shortcut icon" href="assets/iconos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/iconos/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
     <div class="container">
         <nav class="nav-main">
-            <img src="assets/images/logo.png" alt="Logo" class="nav-logo">
+            <img src="assets/images/logo.png" alt="Logo" class="nav-logo"/>
             <ul class="nav-menu">
-                <a href="#"><i class="fa fa-user"></i></a>
+                <a href="view/login.php"><i class="fa fa-user"></i></a>
                 <li>
-                    <a href="view/login.html">Iniciar sesion</a>
+                    <a href="view/login.php">Iniciar sesion</a>
                 </li>
                 <li>
                     <a href="#container-footer">Contactenos</a>
                 </li>
             </ul>
         </nav>
-    </div>   
+    </div>  
+    <?php
+include('controller/conexion.php');
+session_start();
+
+if(isset($_SESSION['nombredelusuario']))
+{
+	$usuario = $_SESSION['nombredelusuario'];
+	echo "<h1>Bienvenido: $usuario </h1>";
+}
+
+?> 
+<form method="POST">
+<input type="submit" value="Cerrar sesión" name="btncerrar" />
+</form>
+<?php
+if(isset($_POST['btncerrar']))
+{
+	session_destroy();
+	header('location: view/login.php');
+}
+?>
     <div class="banner">
         <div class="text">
             <h1>Alojamientos en Bogotá</h1>
@@ -37,25 +58,52 @@
         <div class="row-img">
             <tr>
                 <td>
-                    <img src="assets/images/hotel1.jpg" alt="Hotel1">
+                    <img src="assets/images/hotel1.jpg" alt="Hotel1"/>
                 </td>
                 <td>
-                    <img src="assets/images/hotel2.jpg" alt="Hotel2">
+                    <img src="assets/images/hotel2.jpg" alt="Hotel2"/>
                 </td>
                 <td>
-                    <img src="assets/images/hotel3.jpg" alt="Hotel3">
+                    <img src="assets/images/hotel3.jpg" alt="Hotel3"/>
                 </td>
             </tr>
         </div>  
-    <form action=""> 
+    <form action="#"> 
         <div class="hotelSearch">
-            <input type="search" class="search" placeholder="   ¿Donde quieres ir?">
-            <input type="date" class="fechaI">
-            <input type="date" class="fechaF">
+            <input type="search" class="search" placeholder="   ¿Donde quieres ir?"/>
+            <input type="date" class="fechaI"/>
+            <input type="date" class="fechaF"/>
             <button type="button" class="btn btn-primary"><b>Buscar</b></button>
         </div>
     </form>
-</body>
+    <div id="hidden">
+        <?php
+            include 'controller/conexion.php';
+
+            $consulta= "CALL llamarHotel;";
+
+            $hotel = mysqli_query($conexion, $consulta);
+
+            if($hotel){
+                while($fila = $hotel->fetch_array()){
+                    $nombre = $fila['Nombre_Hotel'];
+                    $direccion = $fila['Direccion_Hotel'];
+                    $descripcion = $fila['Descripcion_Hotel'];
+                    ?>
+                    <div>
+                        <h3><a href="view/reserva.html"><?php echo $nombre; ?></a></h3>
+                        <div>
+                            <p>
+                                <b>Direccion: </b><?php echo $direccion; ?><br>
+                                <b>Descripcion: </b><?php echo $descripcion; ?><br>
+                            </p>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+        ?>
+    </div>
 <footer class="footer">
     <div class="container-footer" id="container-footer">
         <div class="row">
@@ -97,4 +145,7 @@
         </div>
     </div>   
 </footer>
+<script src="library/jquery-3.6.0.min.js"></script>
+<script src="assets/js/search.js"></script>
+</body>
 </html>
