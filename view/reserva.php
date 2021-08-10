@@ -104,6 +104,7 @@
             </div>
          </div>            
       </section>
+      
    </div>
    
    <div class="reservation-info">
