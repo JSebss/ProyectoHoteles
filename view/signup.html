@@ -31,15 +31,21 @@
           <div class="encargado">
             <h2>Encargado</h2>
             <div class="inputbox">
-              <input type="text" class="name" name="name" placeholder="Nombres" required/>
-              <input type="text" class="lastname" name="lastname" placeholder="Apellidos" required/>
+              <input type="text" class="name" name="nomEnc" placeholder="Nombres" required/>
+              <input type="text" class="lastname" name="ApeEnc" placeholder="Apellidos" required/>
+              <select name="TipoDoc">
+                <option value="1">C.C</option>
+                <option value="2">Extranjeria</option>
+              </select>
+              <input type="number" name="NumDocEnc" placeholder="Numero de Documento" required>
               <label>Fecha de nacimiento:</label>
-              <input type="date" class="fechaNac" name="birth" required/>
-              <input type="email" name="email" placeholder="Correo" required/>
-              <input class="password" type="password" name="password" placeholder="Contraseña" required/>
+              <input type="text" class="fechaNac" name="FecNacEnc" required/>
+              <input type="number" name="TelEnc" placeholder="Telefono" required>
+              <input type="email" name="CorEnc" placeholder="Correo" required/>
+              <input class="password" type="password" name="ConEnc" placeholder="Contraseña" required/>
               <i class="show fas fa-eye"></i>
               <i class="hide fas fa-eye-slash"></i>
-              <button><b>Registrarse</b></button>
+              <input type="submit" value="Registrar">
           </div>
         </form>
         </div>
