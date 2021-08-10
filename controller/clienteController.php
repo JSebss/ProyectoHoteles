@@ -10,21 +10,19 @@
     $correo = $_POST['email'];
     $clave = $_POST['password'];
 
-    $query = "CALL crearCliente ('$nombres', '$apellidos', '$fechaNac', '$telefono', '$numDoc', '$correo', '$clave');";
-
-    $verify_email = mysqli_query($conexion,"CALL correoExistente ('$correo');");
+    $verifyEmail = mysqli_query($conexion, "CALL correoExistente ('$correo');");
     
-    if(mysqli_num_rows($verify_email) > 0){
+    if(mysqli_num_rows($verifyEmail) > 0){
         echo '
         <script>
             alert("Correo ya registrado, intenta con otro diferente");
-            window.location = "../view/signup.php";
+            window.location = "../view/signup.html";
         </script>  
         ';
         exit();
     }
 
-    $execute = mysqli_query($conexion, $query);
+    $execute = mysqli_query($conexion, "CALL crearCliente ('$nombres', '$apellidos', '$fechaNac', '$telefono', '$numDoc', '$correo', '$clave');");
 
     if($execute){
         echo '
@@ -37,7 +35,7 @@
         echo '
         <script>
             alert("Error al registrar, intentalo de nuevo");
-            window.location = "../view/login.php";
+            window.location = "../view/signup.html";
         </script>        
         ';
     }

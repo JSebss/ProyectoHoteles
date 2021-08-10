@@ -18,6 +18,31 @@ ul{
     list-style: none;
 }
 
+.dropdown ul{
+    font-size: 16px;
+    overflow: hidden;
+    max-height: 0px;
+    transition: all 0.4s;
+    position: absolute;
+}
+
+.dropdown:hover ul{
+    max-height: 400px;
+    display:block;
+    background-color: white;
+    right: 15px;
+    width: 15%;
+}
+.dropdown-menu li {
+    margin: 0;
+    padding: 8px 15px;
+    transition: all 150ms ease-in;
+}
+
+.dropdown-menu li:hover{
+    background: whitesmoke;
+}
+
 .container{
    width: 95%;
    margin: auto; 
@@ -34,6 +59,10 @@ ul{
 
 .nav-logo{
     width: 50px;
+}
+
+.nav-login{
+    width: 30px; 
 }
 
 .nav-main ul{

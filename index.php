@@ -25,30 +25,20 @@
                 <li>
                     <a href="#container-footer">Contactenos</a>
                 </li>
+                <li class="dropdown">
+                <span><img src="assets/images/panda.jpg" alt="panda" class="nav-login"></span>
+                <ul class="dropdown-menu">
+                <li><a href="#">Vistos recientemente</a></li>
+                <li><a href="view/consultarReservas.php">Reservaciones</a></li>
+                <li><a href="view/configCuenta.html">Configuracion de la cuenta</a></li>
+                <li><a href="#">Informacion general</a></li>
+                <hr>
+                <li><a href="#">Cerrar sesion</a></li>
+              </ul>
+                </li>
             </ul>
         </nav>
     </div>  
-    <?php
-include('controller/conexion.php');
-session_start();
-
-if(isset($_SESSION['nombredelusuario']))
-{
-	$usuario = $_SESSION['nombredelusuario'];
-	echo "<h1>Bienvenido: $usuario </h1>";
-}
-
-?> 
-<form method="POST">
-<input type="submit" value="Cerrar sesión" name="btncerrar" />
-</form>
-<?php
-if(isset($_POST['btncerrar']))
-{
-	session_destroy();
-	header('location: view/login.php');
-}
-?>
     <div class="banner">
         <div class="text">
             <h1>Alojamientos en Bogotá</h1>
@@ -68,12 +58,12 @@ if(isset($_POST['btncerrar']))
                 </td>
             </tr>
         </div>  
-    <form action="#"> 
+    <form action="view/reserva.php" method="POST"> 
         <div class="hotelSearch">
             <input type="search" class="search" placeholder="   ¿Donde quieres ir?"/>
-            <input type="date" class="fechaI"/>
-            <input type="date" class="fechaF"/>
-            <button type="button" class="btn btn-primary"><b>Buscar</b></button>
+            <input type="date" name="fechaI" class="fechaI"/>
+            <input type="date" name="fechaS" class="fechaF"/>
+            <button type="submit" class="btn btn-primary"><b>Buscar</b></button>
         </div>
     </form>
     <div id="hidden">
@@ -91,7 +81,7 @@ if(isset($_POST['btncerrar']))
                     $descripcion = $fila['Descripcion_Hotel'];
                     ?>
                     <div>
-                        <h3><a href="view/reserva.html"><?php echo $nombre; ?></a></h3>
+                        <h3><?php echo $nombre; ?></a></h3>
                         <div>
                             <p>
                                 <b>Direccion: </b><?php echo $direccion; ?><br>
